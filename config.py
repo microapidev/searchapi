@@ -10,6 +10,7 @@ class Config(object):
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
-    ##whoosh search 
-    #WHOOSH_BASE = 'whoosh' + os.path.join(basedir, 'new.db')
-    #maximum display post per page config
+    #whoosh search 
+    WHOOSH_BASE = 'whoosh' + os.path.join(basedir, "search.db")
+    
+    
