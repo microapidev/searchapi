@@ -13,6 +13,6 @@ class Config(object):
 
     #whoosh search 
     # WHOOSH_BASE = 'whoosh' + os.path.join(basedir, "search.db")
-    WHOOSH_BASE = 'inde'
+    WHOOSH_BASE = 'indexed'
     
     
