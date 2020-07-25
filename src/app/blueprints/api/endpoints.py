@@ -5,7 +5,7 @@ import datetime
 
 
 #Endpoints/routes
-api = Blueprint('api', __name__)
+api = Blueprint('api', __name__, url_prefix='/api')
     
 @api.route("/hello")
 def index():
