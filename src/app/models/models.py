@@ -1,6 +1,6 @@
 
 from src.app import  db, ma
-#import flask_whooshalchemy as wa
+import flask_whooshalchemy as wa
 from datetime import datetime
 
 #Models
