@@ -1,6 +1,6 @@
 import os
 from src.app import create_app, db
-from src.app.models.models import  Movies
+from src.app.models.models import Movies
 
 app = create_app()
 

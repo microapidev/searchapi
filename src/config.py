@@ -1,8 +1,10 @@
 import os
 import secrets
+from dotenv import load_dotenv
 
 #environment variable
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 #configuration
 class Config(object):

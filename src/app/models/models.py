@@ -8,6 +8,7 @@ from datetime import datetime
 class Movies(db.Model):
     
     __tablename__ = 'Movies'
+    __table_args__ = {'extend_existing': True}
     __searchable__ = ['title', 'year', 'genre', 'description', 'producer']
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
@@ -20,13 +21,14 @@ class Movies(db.Model):
     def __repr__(self):
         return '<Title {}>'.format(self.title)
                     
-Class MovieSchema(ma.Schema):
-    Class Meta:
-        model = Movies
+class MovieSchema(ma.Schema):
+    class Meta:
+        # model = Movies
+        # extend_existing=True
         fields = ('id', 'title', 'year', 'genre', 'description', 'producer')
         
-movie_schema = MovieSchema(strict=True)
-movies_schema = Movieschema(many=True)
+movie_schema = MovieSchema()
+movies_schema = MovieSchema(many=True)
 
 
 
@@ -34,4 +36,4 @@ movies_schema = Movieschema(many=True)
 #wa.whoosh_index(app, PostData)
 
 #programmatic creating database
-db.create_all()
+#db.create_all()
