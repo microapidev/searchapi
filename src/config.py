@@ -1,8 +1,10 @@
 import os
 import secrets
+from dotenv import load_dotenv
 
 #environment variable
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 #configuration
 class Config(object):
@@ -16,14 +18,14 @@ class Config(object):
     # WHOOSH_BASE = 'whoosh' + os.path.join(basedir, "search.db")
     WHOOSH_BASE = 'indexed'
     
-Class ProductionConfig(Config):
+class ProductionConfig(Config):
     DEBUG = False
 
-Class StagingConfig(Config):
+class StagingConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
     
-Class DevelopmentConfig(Config):
+class DevelopmentConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
     
