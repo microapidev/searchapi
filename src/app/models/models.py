@@ -1,11 +1,11 @@
-from whoosh.analysis import SimpleAnalyzer
-from searchapi import db, app, ma
+
+from src.app import  db, ma
 import flask_whooshalchemy as wa
 from datetime import datetime
 
 #Models
 
-Class Movies(db.Model):
+class Movies(db.Model):
     
     __tablename__ = 'Movies'
     __searchable__ = ['title', 'year', 'genre', 'description', 'producer']
@@ -22,6 +22,7 @@ Class Movies(db.Model):
                     
 Class MovieSchema(ma.Schema):
     Class Meta:
+        model = Movies
         fields = ('id', 'title', 'year', 'genre', 'description', 'producer')
         
 movie_schema = MovieSchema(strict=True)
