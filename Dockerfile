@@ -4,4 +4,6 @@ WORKDIR /app/
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . /app/
-ENV FLASK_ENV production
+EXPOSE 9207
+RUN chmod +x /app/deploy.sh
+CMD ["/app/deploy.sh"]
