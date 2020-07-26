@@ -23,10 +23,10 @@ python-dotenv==0.14.0
 python-editor==1.0.4
 pytz==2020.1
 six==1.15.0
+psycopg2-binary
 SQLAlchemy==1.3.18
 Werkzeug==1.0.1
 Whoosh==2.6.0
 zipp==3.1.0
 # Flask-WhooshAlchemyPlus
 git+git://github.com/gyllstromk/Flask-WhooshAlchemy.git@master
-psycopg2
