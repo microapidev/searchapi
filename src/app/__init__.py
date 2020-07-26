@@ -23,13 +23,9 @@ def create_app(config_class=TestingConfig):
     app.config.from_object(config_class)
 
     # Import blueprints
-    from src.app.blueprints.api_v1.controllers import api_v1_bp
-    from src.app.blueprints.errors.handlers import errors_bp
     from src.app.blueprints.api.routes import api
 
     # Register blueprints
-    app.register_blueprint(errors_bp)
-    app.register_blueprint(api_v1_bp, url_prefix='/api_v1')
     app.register_blueprint(api, url_prefix="/api")
 
     #setup flask instance extensions
@@ -58,6 +54,6 @@ def create_app(config_class=TestingConfig):
         app.logger.addHandler(file_handler)
 
         app.logger.setLevel(logging.INFO)
-        app.logger.info(f'{APP_NAME} startup')
+        app.logger.info(f'{APP_NAME} Search')
 
     return app
