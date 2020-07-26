@@ -2,7 +2,7 @@ from src.app import db, ma
 from flask import Flask
 import flask_whooshalchemy as wa
 from datetime import datetime
-from marshmallow import Schema, fields
+from marshmallow import fields
 from flask_restx import fields as restx_fields
 
 
@@ -25,7 +25,7 @@ class Movies(db.Model):
         return "<Movies(title={self.title!r})>".format(self=self)
 
 
-class MovieSchema(Schema):
+class MovieSchema(ma.Schema):
     id = fields.Int()
     title = fields.Str()
     year = fields.Str()
