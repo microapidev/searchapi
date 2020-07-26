@@ -16,8 +16,9 @@ class Config(object):
 
     #whoosh search 
     # WHOOSH_BASE = 'whoosh' + os.path.join(basedir, "search.db")
-    WHOOSH_BASE = 'indexed'
-    
+    # WHOOSH_BASE = 'indexed'
+    WHOOSH_BASE = os.path.join(basedir, "indexed")
+
 class ProductionConfig(Config):
     DEBUG = False
 
