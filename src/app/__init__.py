@@ -28,7 +28,7 @@ def create_app(config_class=Config):
     from src.app.blueprints.webapp.routes import webapp
 
     # Register blueprints
-    app.register_blueprint(api)
+    app.register_blueprint(api, url_prefix="/api")
     app.register_blueprint(webapp)
 
     #setup flask instance extensions
