@@ -23,13 +23,11 @@ def create_app(config_class=Config):
     # Setup configurations
     app.config.from_object(config_class)
 
-    # Import blueprints   
-    from src.app.blueprints.api.endpoints import api
-    from src.app.blueprints.webapp.routes import webapp
+    # Import blueprints
+    from src.app.blueprints.api.routes import api
 
     # Register blueprints
-    app.register_blueprint(api)
-    app.register_blueprint(webapp)
+    app.register_blueprint(api, url_prefix="/api")
 
     #setup flask instance extensions
     db.init_app(app)
@@ -39,5 +37,23 @@ def create_app(config_class=Config):
     with app.app_context():
         db.create_all()
     
+
+    if not app.debug and not app.testing:
+        # enable logging
+        if not os.path.exists('logs'):
+            os.mkdir('logs')
+
+        APP_NAME = os.environ.get('APP_NAME')
+        file_handler = RotatingFileHandler(
+            f'logs/{APP_NAME}.log', maxBytes=10240, backupCount=10)
+
+        file_handler.setFormatter(logging.Formatter(
+            '%(asctime)s %(levelname)s: %(messages)s [in %(pathname)s:%(lineno)d]'))
+
+        file_handler.setLevel(logging.INFO)
+        app.logger.addHandler(file_handler)
+
+        app.logger.setLevel(logging.INFO)
+        app.logger.info(f'{APP_NAME} Search')
 
     return app
