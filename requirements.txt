@@ -29,3 +29,4 @@ Whoosh==2.6.0
 zipp==3.1.0
 # Flask-WhooshAlchemyPlus
 git+git://github.com/gyllstromk/Flask-WhooshAlchemy.git@master
+psycopg2
