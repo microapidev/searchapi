@@ -1,1 +1,1 @@
-web: gunicorn --chdir src run:app -w 2 --threads 2 -b 0.0.0.0:8000 --log-file -
+web: gunicorn --chdir src run:app -w 2 --threads 2 --log-file -
