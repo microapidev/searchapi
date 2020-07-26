@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, make_response, Blueprint
 from flask_restx import Api
-import flask_whooshalchemy as wa
+import src.flask_whooshalchemy as wa
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_restx import Resource, fields
 from src.app.models.models import Movies, movie_schema, create_api_movie_model, create_api_search_model
