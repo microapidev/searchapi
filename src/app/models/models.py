@@ -1,6 +1,6 @@
 from src.app import db, ma
 from flask import Flask
-import src.flask_whooshalchemy as wa
+import flask_whooshalchemyplus as wa
 from datetime import datetime
 from marshmallow import Schema, fields
 from flask_restx import fields as restx_fields
